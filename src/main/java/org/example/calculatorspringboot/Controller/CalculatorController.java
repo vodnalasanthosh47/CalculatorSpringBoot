@@ -16,7 +16,7 @@ public class CalculatorController {
 
     @GetMapping("add")
     public CalculationResponse add(@RequestParam int a, @RequestParam int b) {
-        return new CalculationResponse("subtract", a, b, a+b);
+        return new CalculationResponse("add", a, b, a+b);
     }
 
     @GetMapping("subtract")
