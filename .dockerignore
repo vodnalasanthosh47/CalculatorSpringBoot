@@ -1,3 +1,8 @@
-!target/*.jar
-
-# Ignoring everything apart from the final jar file
+target/
+.git
+.idea
+*.iml
+HELP.md
+Jenkinsfile
+compose.yml
+docker-compose.yml

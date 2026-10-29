@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        IMAGE_NAME = 'vodnalasanthosh/calculator-api'
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -18,7 +22,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                echo 'Building new docker image'
+                echo 'Building docker image'
                 sh "docker build -t calculator-api:${BUILD_NUMBER} -t calculator-api:latest ."
             }
         }
