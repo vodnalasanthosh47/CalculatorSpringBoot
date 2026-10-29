@@ -23,7 +23,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building docker image'
-                sh "docker build -t calculator-api:${BUILD_NUMBER} -t calculator-api:latest ."
+                sh "docker build -t vodnalasanthosh/calculator-api:${BUILD_NUMBER} -t vodnalasanthosh/calculator-api:latest ."
             }
         }
 
