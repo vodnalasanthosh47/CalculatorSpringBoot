@@ -15,6 +15,13 @@ pipeline {
                 sh 'mvn test'
             }
         }
+
+        stage('Docker Build') {
+            steps {
+                echo 'Building new docker image'
+                sh "docker build -t calculator-api:${BUILD_NUMBER} -t calculator-api:latest ."
+            }
+        }
     }
 
     post {

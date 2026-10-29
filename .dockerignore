@@ -1,0 +1,3 @@
+!target/*.jar
+
+# Ignoring everything apart from the final jar file

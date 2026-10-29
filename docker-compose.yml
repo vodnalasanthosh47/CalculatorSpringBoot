@@ -1,0 +1,7 @@
+services:
+  calculator:
+    build: .
+    image: calculator-image:latest
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
