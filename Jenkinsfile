@@ -21,13 +21,13 @@ pipeline {
         success {
             echo 'Build passed'
             mail to: 'vodnalasanthosh47@gmail.com',
-                subject: 'Build passed: ${currentBuild.fullDisplayName}'
+                subject: 'Build PASSED: ${currentBuild.fullDisplayName}'
                 body: 'Result: ${currentBuild.currentResult}\nDetails: ${env.BUILD_URL}'
         }
         failure {
             echo 'Build failed'
             mail to: 'vodnalasanthosh47@gmail.com',
-                subject: 'Build failed: ${currentBuild.fullDisplayName}'
+                subject: 'Build FAILED: ${currentBuild.fullDisplayName}'
                 body: 'Result: ${currentBuild.currentResult}\nDetails: ${env.BUILD_URL}'
         }
     }
