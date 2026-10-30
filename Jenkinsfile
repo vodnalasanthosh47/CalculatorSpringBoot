@@ -53,8 +53,9 @@ pipeline {
             }
             steps {
                 sh 'docker compose up -d --remove-orphans --wait --wait-timeout 120'
+                sh 'docker compose ps'
 
-                sh 'curl -fsS http://localhost:9090/actuator/health'
+                sh 'curl -fsS http://127.0.0.1:9090/actuator/health'
             }
             post {
                 failure {
