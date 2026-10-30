@@ -46,6 +46,22 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy') {
+            environment {
+                IMAGE_TAG="$BUILD_NUMBER"
+            }
+            steps {
+                sh 'docker compose up -d --remove-orphans --wait --wait-timeout 120'
+
+                sh 'curl -fsS http://localhost:9090/actuator/health'
+            }
+            post {
+                failure {
+                    sh 'docker compose ps; docker compose logs --tail=50 || true'
+                }
+            }
+        }
     }
 
     post {
